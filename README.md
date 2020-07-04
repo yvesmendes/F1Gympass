@@ -5,6 +5,7 @@
 Create a native application without external libs to read a log file and format the result grid as expected.
 
 ## Input File ##
+```
                             Piloto             Nº Volta   Tempo Volta       Velocidade média da volta
 23:49:08.277      038 – F.MASSA                           1		1:02.852                        44,275
 23:49:10.858      033 – R.BARRICHELLO                     1		1:04.352                        43,243
@@ -29,7 +30,9 @@ Create a native application without external libs to read a log file and format 
 23:53:06.741      015 – F.ALONSO                          4		1:20.050			                  34,763
 23:53:39.660      011 – S.VETTEL                          2		1:37.864			                  28,435
 23:54:57.757      011 – S.VETTEL                          3		1:18.097			                  35,633
+```
 ## Excepted Result ##
+```
 |-----------------------------------------------------------------------------------------------------|
 | POSITION | DRIVER                  | LAP | TIME                     | BEST LAP      | AVERAGE SPEED |
 |-----------------------------------------------------------------------------------------------------|
@@ -42,3 +45,4 @@ Create a native application without external libs to read a log file and format 
 |-----------------------------------------------------------------------------------------------------|
 |                                                             BEST LAP RACE: 038 - F.MASSA - 01:02.769|
 |-----------------------------------------------------------------------------------------------------|
+```
