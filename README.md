@@ -1,6 +1,6 @@
 # F1Gympass
 
-## Gym pass Challenge ##
+## Gympass Challenge ##
 
 Create a native application without external libs to read a log file and format the result grid as expected.
 
@@ -46,3 +46,9 @@ Create a native application without external libs to read a log file and format 
 |                                                             BEST LAP RACE: 038 - F.MASSA - 01:02.769|
 |-----------------------------------------------------------------------------------------------------|
 ```
+## Compile ##
+```
+mvn clean install
+```
+## RUN ##
+
