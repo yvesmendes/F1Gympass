@@ -16,7 +16,7 @@ import br.com.gympass.f1.parsers.ParserLog;
  * @author yvesmendes
  */
 public abstract class AbstractRaceLogRepository implements RaceLogRepository {
-	private static final String DEFAULT_INPUT_LOG_NAME = "input.log";
+	private static final String DEFAULT_INPUT_LOG_NAME = "src/main/resources/input.log";
 
 	protected ParserLog parser;
 
@@ -44,10 +44,9 @@ public abstract class AbstractRaceLogRepository implements RaceLogRepository {
 
 	private List<String> tryWithClassLoader(List<String> lines) throws InvalidFileException {
 		Path path;
-		URL url = ClassLoader.getSystemResource(DEFAULT_INPUT_LOG_NAME);
-
+		
 		try {
-			path = Paths.get(url.toURI());
+			path = Paths.get(DEFAULT_INPUT_LOG_NAME);
 			lines = Files.readAllLines(path);
 		} catch (Exception e1) {
 			throw new InvalidFileException(e1);

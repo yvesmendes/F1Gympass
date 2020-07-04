@@ -26,6 +26,7 @@ public class F1ConsoleApplicationImpl implements F1Application {
 			Classification classification = this.raceControlle.executeAction(formatterEnum);
 			System.out.println(formatterEnum.getConsoleFormaterClassification().formatClassification(classification));
 		} catch (InvalidFileException e) {
+			e.printStackTrace();
 			System.out.println("Invalid file! Please inform a valid log file.");
 		}
 	}

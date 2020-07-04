@@ -14,7 +14,7 @@ public class App {
 		FormatterEnum formatterEnum = FormatterEnum.GENERAL;
 
 		if (args.length > 0) {
-			formatterEnum = FormatterEnum.valueOf(args[0]);
+			formatterEnum = FormatterEnum.fromValue(args[0]);
 		}
 
 		f1Application.run(formatterEnum);

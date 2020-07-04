@@ -56,7 +56,7 @@ public enum FormatterEnum {
 		this.key = key;
 	}
 
-	public FormatterEnum fromValue(String value) {
+	public static FormatterEnum fromValue(String value) {
 		return Arrays.stream(FormatterEnum.values())
 				.filter(e -> e.key.equals(value))
 				.findFirst()
