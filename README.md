@@ -48,7 +48,22 @@ Create a native application without external libs to read a log file and format 
 ```
 ## Compile ##
 ```
-mvn clean install
+mvn package
 ```
 ## RUN ##
+```
+java -jar target/f1app-1.0-SNAPSHOT.jar
+
+There are three diferent types of formatter:
+* general (default)
+* f1
+* laps
+
+Just pass one of these strings after the jar execution e.g.
+
+java -jar target/f1app-1.0-SNAPSHOT.jar f1
+java -jar target/f1app-1.0-SNAPSHOT.jar laps
+```
+
+
 
