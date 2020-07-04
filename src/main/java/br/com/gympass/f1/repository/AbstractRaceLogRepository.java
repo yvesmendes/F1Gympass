@@ -1,6 +1,5 @@
 package br.com.gympass.f1.repository;
 
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,9 +15,9 @@ import br.com.gympass.f1.parsers.ParserLog;
  * @author yvesmendes
  */
 public abstract class AbstractRaceLogRepository implements RaceLogRepository {
-	private static final String DEFAULT_INPUT_LOG_NAME = "src/main/resources/input.log";
 
 	protected ParserLog parser;
+	private InputFile inputFile;
 
 	/**
 	 * Constructor of the RaceLogRepository
@@ -26,8 +25,9 @@ public abstract class AbstractRaceLogRepository implements RaceLogRepository {
 	 * @param parser
 	 *            a parserLog to parse lines of the log
 	 */
-	public AbstractRaceLogRepository(ParserLog parser) {
+	public AbstractRaceLogRepository(ParserLog parser, InputFile inputFile) {
 		this.parser = parser;
+		this.inputFile = inputFile;
 	}
 
 	/**
@@ -37,21 +37,16 @@ public abstract class AbstractRaceLogRepository implements RaceLogRepository {
 	 * @throws InvalidFileException
 	 */
 	public List<RaceLog> findAll() throws InvalidFileException {
-		List<String> lines = null;
-		lines = tryWithClassLoader(lines);
-		return this.parseLines(lines);
+		return this.parseLines(getLinesFile());
 	}
 
-	private List<String> tryWithClassLoader(List<String> lines) throws InvalidFileException {
-		Path path;
-		
+	private List<String> getLinesFile() throws InvalidFileException {
 		try {
-			path = Paths.get(DEFAULT_INPUT_LOG_NAME);
-			lines = Files.readAllLines(path);
+			Path path = Paths.get(this.inputFile.getPath());
+			return Files.readAllLines(path);
 		} catch (Exception e1) {
 			throw new InvalidFileException(e1);
 		}
-		return lines;
 	}
 
 	/**

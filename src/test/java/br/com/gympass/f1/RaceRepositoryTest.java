@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import br.com.gympass.f1.model.log.builder.RaceLog;
 import br.com.gympass.f1.parsers.impl.ParserLogRegexImpl;
+import br.com.gympass.f1.repository.InputFile;
 import br.com.gympass.f1.repository.RaceLogRepository;
 import br.com.gympass.f1.repository.impl.RaceLogInMemoryRepositoryImpl;
 
@@ -18,12 +19,14 @@ import br.com.gympass.f1.repository.impl.RaceLogInMemoryRepositoryImpl;
  */
 public class RaceRepositoryTest {
 
+	private static final String SRC_TEST_RESOURCES_INPUT_LOG = "src/test/resources/input.log";
 	private static final int EXCEPTED_SIZE = 23;
 	private static RaceLogRepository raceLogRepository;
 
 	@BeforeClass
 	public static void setup() {
-		raceLogRepository = new RaceLogInMemoryRepositoryImpl(new ParserLogRegexImpl());
+		raceLogRepository = new RaceLogInMemoryRepositoryImpl(new ParserLogRegexImpl(),
+				new InputFile(SRC_TEST_RESOURCES_INPUT_LOG));
 	}
 
 	@Test

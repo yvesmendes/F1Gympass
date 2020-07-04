@@ -10,6 +10,7 @@ import br.com.gympass.f1.formatter.enums.FormatterEnum;
 import br.com.gympass.f1.model.Classification;
 import br.com.gympass.f1.model.Driver;
 import br.com.gympass.f1.parsers.impl.ParserLogRegexImpl;
+import br.com.gympass.f1.repository.InputFile;
 import br.com.gympass.f1.repository.impl.RaceLogInMemoryRepositoryImpl;
 import br.com.gympass.f1.services.impl.RaceServiceImpl;
 
@@ -23,10 +24,11 @@ public class RaceServiceTest {
 	private static final String DRIVER_NAME_MASSA = "F.MASSA";
 	private static final String DRIVER_ID_MASSA = "038";
 	private static RaceServiceImpl raceService;
+	private static final String SRC_TEST_RESOURCES_INPUT_LOG = "src/test/resources/input.log";
 
 	@BeforeClass
 	public static void setup() {
-		raceService = new RaceServiceImpl(new RaceLogInMemoryRepositoryImpl(new ParserLogRegexImpl()));
+		raceService = new RaceServiceImpl(new RaceLogInMemoryRepositoryImpl(new ParserLogRegexImpl(), new InputFile(SRC_TEST_RESOURCES_INPUT_LOG)));
 	}
 
 	@Test

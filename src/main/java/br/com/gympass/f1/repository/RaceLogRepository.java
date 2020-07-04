@@ -14,7 +14,7 @@ public interface RaceLogRepository {
 
 	/**
 	 * Return all lines of the log
-	 * 
+	 * @param inputFile Define the path of the input file
 	 * @return
 	 * @throws InvalidFileException
 	 */

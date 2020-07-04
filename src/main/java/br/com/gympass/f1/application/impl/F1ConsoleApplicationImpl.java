@@ -1,6 +1,7 @@
 package br.com.gympass.f1.application.impl;
 
 import br.com.gympass.f1.application.F1Application;
+import br.com.gympass.f1.config.ComponentFactory;
 import br.com.gympass.f1.controller.RaceController;
 import br.com.gympass.f1.controller.impl.RaceControllerImpl;
 import br.com.gympass.f1.exceptions.InvalidFileException;
@@ -17,7 +18,7 @@ public class F1ConsoleApplicationImpl implements F1Application {
 	private RaceController raceControlle;
 
 	public F1ConsoleApplicationImpl() {
-		this.raceControlle = new RaceControllerImpl();
+		this.raceControlle = new RaceControllerImpl(ComponentFactory.getInstance().getRaceService());
 	}
 
 	@Override

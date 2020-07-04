@@ -8,6 +8,7 @@ import br.com.gympass.f1.exceptions.InvalidInputException;
 import br.com.gympass.f1.model.log.builder.RaceLog;
 import br.com.gympass.f1.parsers.ParserLog;
 import br.com.gympass.f1.repository.AbstractRaceLogRepository;
+import br.com.gympass.f1.repository.InputFile;
 import br.com.gympass.f1.repository.RaceLogRepository;
 
 /**
@@ -19,8 +20,8 @@ public class RaceLogInMemoryRepositoryImpl extends AbstractRaceLogRepository {
 
 	private static final int INDEX_ONE = 1;
 
-	public RaceLogInMemoryRepositoryImpl(ParserLog parser) {
-		super(parser);
+	public RaceLogInMemoryRepositoryImpl(ParserLog parser, InputFile inputFile) {
+		super(parser, inputFile);
 	}
 
 	@Override
