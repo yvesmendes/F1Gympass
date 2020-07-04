@@ -12,10 +12,9 @@ public interface RaceController {
 	/**
 	 * Execute a action trigged by the application.
 	 * 
-	 * @param pathLogFile a path to log file
 	 * @param formatter formatter for the result
 	 * @return return a classification result for the race
 	 * @throws InvalidFileException  if a invalid input file has informed
 	 */
-	Classification executeAction(final String pathLogFile, final FormatterEnum formatter) throws InvalidFileException;
+	Classification executeAction(final FormatterEnum formatter) throws InvalidFileException;
 }

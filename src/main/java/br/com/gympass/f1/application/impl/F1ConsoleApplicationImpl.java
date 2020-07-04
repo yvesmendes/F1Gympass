@@ -21,9 +21,9 @@ public class F1ConsoleApplicationImpl implements F1Application {
 	}
 
 	@Override
-	public void run(String pathFile, FormatterEnum formatterEnum) {
+	public void run(FormatterEnum formatterEnum) {
 		try {
-			Classification classification = this.raceControlle.executeAction(pathFile, formatterEnum);
+			Classification classification = this.raceControlle.executeAction(formatterEnum);
 			System.out.println(formatterEnum.getConsoleFormaterClassification().formatClassification(classification));
 		} catch (InvalidFileException e) {
 			System.out.println("Invalid file! Please inform a valid log file.");

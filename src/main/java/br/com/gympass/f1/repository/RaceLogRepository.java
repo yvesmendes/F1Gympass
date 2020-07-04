@@ -18,5 +18,5 @@ public interface RaceLogRepository {
 	 * @return
 	 * @throws InvalidFileException
 	 */
-	List<RaceLog> findAll(String pathLogFile) throws InvalidFileException;
+	List<RaceLog> findAll() throws InvalidFileException;
 }

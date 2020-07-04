@@ -15,12 +15,10 @@ public interface RaceService {
 	/**
 	 * Returns the result of the race
 	 * 
-	 * @param pathLog
-	 *            path to the log on your system
 	 * @param formatter
 	 *            formatter for the result
 	 * @return
 	 * @throws InvalidFileException
 	 */
-	Classification getRaceResult(String pathLog, FormatterEnum formatter) throws InvalidFileException;
+	Classification getRaceResult(FormatterEnum formatter) throws InvalidFileException;
 }

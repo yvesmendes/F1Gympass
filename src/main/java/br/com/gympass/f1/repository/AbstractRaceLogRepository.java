@@ -1,7 +1,5 @@
 package br.com.gympass.f1.repository;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,8 +16,8 @@ import br.com.gympass.f1.parsers.ParserLog;
  * @author yvesmendes
  */
 public abstract class AbstractRaceLogRepository implements RaceLogRepository {
-
 	private static final String DEFAULT_INPUT_LOG_NAME = "input.log";
+
 	protected ParserLog parser;
 
 	/**
@@ -38,22 +36,15 @@ public abstract class AbstractRaceLogRepository implements RaceLogRepository {
 	 * @return
 	 * @throws InvalidFileException
 	 */
-	public List<RaceLog> findAll(String pathLogFile) throws InvalidFileException {
-		Path path = null;
+	public List<RaceLog> findAll() throws InvalidFileException {
 		List<String> lines = null;
-		try {
-			path = getPath(pathLogFile);
-			lines = Files.readAllLines(path);
-		} catch (IOException | URISyntaxException e) {
-			lines = tryWithClassLoader(pathLogFile, lines, e);
-		}
+		lines = tryWithClassLoader(lines);
 		return this.parseLines(lines);
 	}
 
-	private List<String> tryWithClassLoader(String pathLogFile, List<String> lines, Exception e)
-			throws InvalidFileException {
+	private List<String> tryWithClassLoader(List<String> lines) throws InvalidFileException {
 		Path path;
-		URL url = ClassLoader.getSystemResource(pathLogFile);
+		URL url = ClassLoader.getSystemResource(DEFAULT_INPUT_LOG_NAME);
 
 		try {
 			path = Paths.get(url.toURI());
@@ -62,16 +53,6 @@ public abstract class AbstractRaceLogRepository implements RaceLogRepository {
 			throw new InvalidFileException(e1);
 		}
 		return lines;
-	}
-
-	private Path getPath(String pathLogFile) throws URISyntaxException {
-		Path path = null;
-		if (pathLogFile == null) {
-			path = Paths.get(ClassLoader.getSystemResource(DEFAULT_INPUT_LOG_NAME).toURI());
-		} else {
-			path = Paths.get(pathLogFile);
-		}
-		return path;
 	}
 
 	/**

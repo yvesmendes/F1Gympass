@@ -11,17 +11,12 @@ public class App {
 	public static void main(String[] args) {
 		F1Application f1Application = new F1ConsoleApplicationImpl();
 
-		String pathFile = null;
-
 		FormatterEnum formatterEnum = FormatterEnum.GENERAL;
+
 		if (args.length > 0) {
-			pathFile = args[0];
+			formatterEnum = FormatterEnum.valueOf(args[0]);
 		}
 
-		if (args.length > 1) {
-			formatterEnum = FormatterEnum.valueOf(args[1]);
-		}
-
-		f1Application.run(pathFile, formatterEnum);
+		f1Application.run(formatterEnum);
 	}
 }

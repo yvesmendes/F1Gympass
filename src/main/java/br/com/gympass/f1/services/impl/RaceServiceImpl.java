@@ -24,9 +24,9 @@ public class RaceServiceImpl implements RaceService {
 	}
 
 	@Override
-	public Classification getRaceResult(final String pathLog, FormatterEnum formatter) throws InvalidFileException {
+	public Classification getRaceResult(FormatterEnum formatter) throws InvalidFileException {
 
-		List<RaceLog> raceLogs = this.raceLogRepository.findAll(pathLog);
+		List<RaceLog> raceLogs = this.raceLogRepository.findAll();
 
 		Driver bestLapDriver = null;
 		Date bestLapTimeRace = null;

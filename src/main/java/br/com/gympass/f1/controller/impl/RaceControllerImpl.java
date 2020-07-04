@@ -22,7 +22,7 @@ public class RaceControllerImpl implements RaceController {
 	}
 
 	@Override
-	public Classification executeAction(final String pathLogFile, final FormatterEnum formatter) throws InvalidFileException {
-		return raceService.getRaceResult(pathLogFile, formatter);
+	public Classification executeAction(final FormatterEnum formatter) throws InvalidFileException {
+		return raceService.getRaceResult(formatter);
 	}
 }

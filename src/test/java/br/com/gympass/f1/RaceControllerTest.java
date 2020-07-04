@@ -26,7 +26,7 @@ public class RaceControllerTest {
 
 	@Test
 	public void shouldSuccessOnGetRaceResult() throws Exception {
-		Classification classification = raceController.executeAction(null, FormatterEnum.GENERAL);
+		Classification classification = raceController.executeAction(FormatterEnum.GENERAL);
 		assertThat(classification.getResultsByLap().size(), equalTo(SIZE_OF_DRIVERS));
 	}
 }
