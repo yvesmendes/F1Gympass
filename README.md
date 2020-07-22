@@ -46,6 +46,9 @@ Create a native application without external libs to read a log file and format 
 |                                                             BEST LAP RACE: 038 - F.MASSA - 01:02.769|
 |-----------------------------------------------------------------------------------------------------|
 ```
+## Pre-Requisities ##
+- maven
+- JDK 1.8
 ## Compile ##
 ```
 mvn package
